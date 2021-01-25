@@ -10,7 +10,7 @@
     Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Transport Rules..." -ForegroundColor Green
     Get-TransportRule | export-csv $path\TransportRule.csv
 	
-    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Transport Configuration..." -ForegroundColor Green 
+    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Transport Configurations..." -ForegroundColor Green 
     Get-TransportConfig | export-csv $path\TransportConfig.csv
 
 }
@@ -81,7 +81,7 @@ function Get-SPNandAppDetails{
     Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Registered Applications..." -ForegroundColor Green
     $applications = Get-AzureADApplication -all $true | Sort-Object -Property DisplayName
 
-    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Service Principal Certificate and Password details..." -ForegroundColor Green
+    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Service Principal Certificate and Password Details..." -ForegroundColor Green
         foreach ($spn in $servicePrincipals) {
             $keys = $spn.keycredentials
             foreach ($key in $keys){
@@ -112,7 +112,7 @@ function Get-SPNandAppDetails{
             $newapp | export-csv $path\SPNSecrets.csv -Append
         }
     }
-    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Registered Applications Certificate and Password details..." -ForegroundColor Green
+    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Registered Applications Certificate and Password Details..." -ForegroundColor Green
         foreach ($app in $applications) {
             $keys = $app.keycredentials
             foreach ($key in $keys){
@@ -229,14 +229,14 @@ function Get-ServicePrincipalOwner{
 
 function Get-ServicePrincipal{
 
-    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving ServicePrincipal..." -ForegroundColor Green
+    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Service Principals..." -ForegroundColor Green
     Get-AzureADServicePrincipal -all:$true | export-csv $path\ServicePrincipal.csv
 
 }
 
 function Get-ServicePrincipalSSO{
 
-    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Service Principals Single Sign-on..." -ForegroundColor Green
+    Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Service Principals Single Sign-On..." -ForegroundColor Green
     Get-AzureADServicePrincipal -All:$true |?{$_.Tags -eq "WindowsAzureActiveDirectoryCustomSingleSignOnApplication"} | export-csv $path\ServicePrincipalSSO.csv
 
 }
@@ -363,7 +363,7 @@ process {
         }
     }
 
-    Write-Verbose "Retrieving app role assignments..."
+    Write-Verbose "Retrieving App Role Assignments..."
     switch ($behavior) {
         "1P" {
             $assignments = @(Get-AzureADServiceAppRoleAssignedTo -ObjectId $client.ObjectId -All $true)
@@ -448,7 +448,7 @@ ForEach ($ReqModule in $ModuleArray){
 
 Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Connecting to AzureAD..." -ForegroundColor Green
 Connect-AzureAD
-Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Connecting to MSOline..." -ForegroundColor Green
+Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Connecting to MS Online..." -ForegroundColor Green
 Connect-MsolService`n
 $ErrorActionPreference = "silentlycontinue"
 $date = Get-Date -UFormat %H-%M_%m-%d-%Y
