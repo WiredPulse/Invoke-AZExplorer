@@ -421,13 +421,14 @@ process {
 
 }
 
-
+write-host ("`#" * 90) -ForegroundColor yellow
 write-host "  ____                _                _     __________            _                       " -ForegroundColor cyan
 write-host " |_ _|_ ____   _____ | | _____        / \   |__  / ____|_  ___ __ | | ___  _ __ ___ _ __   " -ForegroundColor cyan
 write-host "  | || '_ \ \ / / _ \| |/ / _ \_____ / _ \    / /|  _| \ \/ / '_ \| |/ _ \| '__/ _ \ '__|  " -ForegroundColor cyan
 write-host "  | || | | \ V / (_) |   <  __/_____/ ___ \  / /_| |___ >  <| |_) | | (_) | | |  __/ |     " -ForegroundColor cyan
 write-host " |___|_| |_|\_/ \___/|_|\_\___|    /_/   \_\/____|_____/_/\_\ .__/|_|\___/|_|  \___|_|     " -ForegroundColor cyan
 write-host "                                                            |_|                            " -ForegroundColor cyan
+write-host ("`#" * 90) -ForegroundColor yellow
 
 
 
@@ -448,7 +449,7 @@ ForEach ($ReqModule in $ModuleArray){
 Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Connecting to AzureAD..." -ForegroundColor Green
 Connect-AzureAD
 Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Connecting to MSOline..." -ForegroundColor Green
-Connect-MsolService
+Connect-MsolService`n
 $ErrorActionPreference = "silentlycontinue"
 $date = Get-Date -UFormat %H-%M_%m-%d-%Y
 $dev = New-Item -ItemType Directory "$Env:USERPROFILE\desktop\AzureExplorer_$date" | out-null
