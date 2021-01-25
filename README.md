@@ -1,8 +1,5 @@
 # Invoke-AZExplorer
-Microsoft Azure Survey
-
-
-Invoke-AZExplorer is a set of functions that retrieve vital data from an Azure and 0365 environment.
+Invoke-AZExplorer is a set of functions that retrieve vital data from an Azure and 0365 environment used for intrusion analysis.
 
 # Script Execution:
 1. Download and execute the script
