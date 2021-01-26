@@ -1,4 +1,19 @@
-﻿function Get-TenantConfigs{
+﻿<#
+.SYNOPSIS  
+    Invoke-AZExplorer is a set of functions that retrieve vital data from an Azure and 0365 environment used for intrusion analysis.
+
+.EXAMPLE
+    .\Invoke-AZExplorer.ps1
+
+.NOTES  
+    File Name      : Invoke-AZExplorer.ps1
+    Version        : v.0.1
+    Author         : @WiredPulse
+    Prerequisite   : PowerShell
+    Created        : 22 Jan 21
+#> 
+
+ function Get-TenantConfigs{
 
     Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Tenant Configurations..." -ForegroundColor Green
     Write-Host "[+] " -ForegroundColor Yellow -NoNewline; Write-Host "Retrieving Organization Configurations..." -ForegroundColor Green
