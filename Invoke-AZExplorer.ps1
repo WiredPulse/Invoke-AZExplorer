@@ -447,7 +447,7 @@ write-host ("`#" * 90) -ForegroundColor yellow
 
 
 
-$ModuleArray = @("AzureAD","MSOnline", "ExchangeOnlineManagement")
+$ModuleArray = @("AzureAD","MSOnline")
 ForEach ($ReqModule in $ModuleArray){
     If ($null -eq (Get-Module $ReqModule -ListAvailable -ErrorAction SilentlyContinue)){
         Write-Verbose "Required module, $ReqModule, is not installed on the system."
